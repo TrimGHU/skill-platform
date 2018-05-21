@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ubtechinc.rule.mapper.RuleResourceMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.ubtechinc.rule.entity.RuleResource">
+        <id column="id" property="id" />
+        <result column="rule_id" property="ruleId" />
+        <result column="resource_ids" property="resourceIds" />
+        <result column="return_type" property="returnType" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+
+    <delete id="deleteByRuleId" parameterType="list">
+        delete
+        from rule_resource rs
+        where rs.rule_id in 
+        <foreach collection="ruleIds" open="(" close=")" separator="," item="ruleId">
+            #{ruleId}
+        </foreach>
+    </delete>
+    
+</mapper>

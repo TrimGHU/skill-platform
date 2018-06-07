@@ -50,7 +50,7 @@ public class DomainControllerTests {
 	Domain domain1 = Domain.builder().ownerId(10000L).name("music1").createTime(new Date()).build();
 	Domain domain2 = Domain.builder().ownerId(10000L).name("music2").createTime(new Date()).build();
 
-	private void AddDateBeforeDDL() {
+	private void addDateBeforeDDL() {
 		domainService.insert(domain1);
 		domainService.insert(domain2);
 	}
@@ -64,7 +64,7 @@ public class DomainControllerTests {
 	@Transactional
 	@Rollback(true)
 	public void modifyWithInvalidName() throws Exception {
-		AddDateBeforeDDL();
+		addDateBeforeDDL();
 
 		LinkedHashMap<String, String> domainParam = new LinkedHashMap<>();
 		domainParam.put("domainId", domain1.getId().toString());
@@ -93,7 +93,7 @@ public class DomainControllerTests {
 	@Transactional
 	@Rollback(true)
 	public void modifyWithInvalidId() throws Exception {
-		AddDateBeforeDDL();
+		addDateBeforeDDL();
 
 		LinkedHashMap<String, String> domainParam = new LinkedHashMap<>();
 		domainParam.put("domainId", "");
@@ -122,7 +122,7 @@ public class DomainControllerTests {
 	@Transactional
 	@Rollback(true)
 	public void modifySuccess() throws Exception {
-		AddDateBeforeDDL();
+		addDateBeforeDDL();
 
 		LinkedHashMap<String, String> domainParam = new LinkedHashMap<>();
 		domainParam.put("domainId", domain1.getId().toString());
@@ -140,7 +140,7 @@ public class DomainControllerTests {
 	@Transactional
 	@Rollback(true)
 	public void querySuccess() throws Exception {
-		AddDateBeforeDDL();
+		addDateBeforeDDL();
 
 		RequestBuilder req = get(QUERY_URL).contentType(MediaType.APPLICATION_JSON);
 

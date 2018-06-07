@@ -87,7 +87,7 @@ public class RuleController extends BaseController {
 
 			List<RuleResource> ruleResources = new LinkedList<>();
 			List<ResourceBo> resources = ruleInfo.getResources();
-			if (resources == null || resources.size() == 0) {
+			if (resources == null || resources.isEmpty()) {
 				continue;
 			}
 			resources.parallelStream()

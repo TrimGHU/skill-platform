@@ -1,5 +1,5 @@
 server:
-  port: 6001
+  port: 6002
 
 spring:
   application:
@@ -17,20 +17,23 @@ spring:
       min-idle: 5
       max-active: 20
       max-wait: 60000
-    
+      
 dubbo:
   scan.basePackages: com.ubtechinc.rule.service
+  application:
+    name: rule-provider
+    id: rule-provider
   protocol:
-    id: dubbo
-    name:  dubbo
-    status: server
+    id: zookeeper
+    name: dubbo
     port: 20992
+    status: server
   registry:
     id: rule-registry
-    address: zookeeper://127.0.0.1:2181
-  application:
-    id: rule-provider
-    name: rule-provider
+    address: 127.0.0.1:2181
+    protocol: zookeeper
+    timeout: 30000
+    threads: 10
 
 mybatis-plus:
   mapper-locations: classpath:com/ubtechinc/rule/mapper/*/*.xml 

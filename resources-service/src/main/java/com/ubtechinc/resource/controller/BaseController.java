@@ -17,10 +17,12 @@ import com.baomidou.mybatisplus.plugins.Page;
 
 public class BaseController {
 
-	// TODO 后续集成用户ID
+	/**
+	 *  TODO 后续集成用户ID
+	 */
 	Long ownerId = 10000L;
 	
-	private final int DEFAULT_SIZE = 10;
+	private static final int DEFAULT_SIZE = 10;
 
 	public <T> Page<T> getPage(int size, int num) {
 		if (size <= 0) {
@@ -29,7 +31,7 @@ public class BaseController {
 		if( num <= 0){
 			num = 1;
 		}
-		return new Page<T>(num , size);
+		return new Page<>(num , size);
 	}
 
 }

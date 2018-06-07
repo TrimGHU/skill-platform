@@ -59,7 +59,7 @@ public class IntentControllerTests {
 	Intent intent2 = Intent.builder().name("sing2").createTime(new Date()).build();
 	Intent intent3 = Intent.builder().name("sing3").createTime(new Date()).build();
 
-	private void AddDateBeforeDDL() {
+	private void addDateBeforeDDL() {
 		domainService.insert(domain1);
 		domainService.insert(domain2);
 
@@ -80,7 +80,7 @@ public class IntentControllerTests {
 	@Transactional
 	@Rollback(true)
 	public void modifyWithInvalidName() throws Exception {
-		AddDateBeforeDDL();
+		addDateBeforeDDL();
 
 		LinkedHashMap<String, String> intentParam = new LinkedHashMap<>();
 		intentParam.put("intentId", intent1.getId().toString());
@@ -109,7 +109,7 @@ public class IntentControllerTests {
 	@Transactional
 	@Rollback(true)
 	public void modifyWithInvalidId() throws Exception {
-		AddDateBeforeDDL();
+		addDateBeforeDDL();
 
 		LinkedHashMap<String, String> intentParam = new LinkedHashMap<>();
 		intentParam.put("intentId", "");
@@ -138,7 +138,7 @@ public class IntentControllerTests {
 	@Transactional
 	@Rollback(true)
 	public void modifySuccess() throws Exception {
-		AddDateBeforeDDL();
+		addDateBeforeDDL();
 
 		LinkedHashMap<String, String> intentParam = new LinkedHashMap<>();
 		intentParam.put("intentId", intent1.getId().toString());
@@ -157,7 +157,7 @@ public class IntentControllerTests {
 	@Transactional
 	@Rollback(true)
 	public void queryWithInvalidDomainId() throws Exception {
-		AddDateBeforeDDL();
+		addDateBeforeDDL();
 
 		RequestBuilder req = get(QUERY_URL).param("domainId", "").contentType(MediaType.APPLICATION_JSON);
 		String response = mvc.perform(req).andExpect(status().isInternalServerError()).andReturn().getResponse()
@@ -180,7 +180,7 @@ public class IntentControllerTests {
 	@Transactional
 	@Rollback(true)
 	public void querySuccess() throws Exception {
-		AddDateBeforeDDL();
+		addDateBeforeDDL();
 
 		RequestBuilder req = get(QUERY_URL).param("domainId", domain2.getId().toString())
 				.contentType(MediaType.APPLICATION_JSON);

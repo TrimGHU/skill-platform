@@ -1,7 +1,6 @@
 package com.ubtechinc.corpus.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
-//import com.alibaba.dubbo.config.annotation.Service;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.ubtechinc.corpus.api.ICorpusService;
 import com.ubtechinc.corpus.entity.Corpus;

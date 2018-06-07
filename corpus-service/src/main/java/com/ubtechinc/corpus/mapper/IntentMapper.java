@@ -1,6 +1,6 @@
 package com.ubtechinc.corpus.mapper;
 
-import java.util.LinkedHashMap;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -18,7 +18,7 @@ import com.ubtechinc.corpus.entity.Intent;
 
 public interface IntentMapper extends BaseMapper<Intent> {
 
-	LinkedHashMap<String,Object> selectByName(@Param("name") String name);
+	Map<String,Object> selectByName(@Param("name") String name);
 	
 	Long selectIdByName(@Param("name") String name);
 }

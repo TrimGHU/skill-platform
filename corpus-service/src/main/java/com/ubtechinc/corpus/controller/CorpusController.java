@@ -1,8 +1,8 @@
 package com.ubtechinc.corpus.controller;
 
 import java.util.Arrays;
-import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.constraints.NotNull;
@@ -66,7 +66,7 @@ public class CorpusController extends BaseController {
 	@PostMapping(value = "/add")
 	public void add(HttpServletResponse response, @RequestBody @Validated(CorpusBo.New.class) CorpusBo corpusBo) {
 		// 根据意图查询信息（是否已存在，所属领域）
-		LinkedHashMap<String, Object> intentMap = intentService.selectByName(corpusBo.getIntentName());
+		Map<String, Object> intentMap = intentService.selectByName(corpusBo.getIntentName());
 
 		// 根据领域名称查询领域信息
 		Domain searchDomain = Domain.builder().name(corpusBo.getDomainName()).build();

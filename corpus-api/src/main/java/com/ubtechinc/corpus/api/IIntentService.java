@@ -1,6 +1,6 @@
 package com.ubtechinc.corpus.api;
 
-import java.util.LinkedHashMap;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -19,6 +19,6 @@ import com.ubtechinc.corpus.entity.Intent;
 
 public interface IIntentService extends IService<Intent> {
 
-	LinkedHashMap<String,Object> selectByName(@Param("name") String name);
+	Map<String,Object> selectByName(@Param("name") String name);
 	
 }

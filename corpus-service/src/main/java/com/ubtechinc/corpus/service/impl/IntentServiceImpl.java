@@ -1,11 +1,10 @@
 package com.ubtechinc.corpus.service.impl;
 
-import java.util.LinkedHashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.alibaba.dubbo.config.annotation.Service;
-//import com.alibaba.dubbo.config.annotation.Service;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.ubtechinc.corpus.api.IIntentService;
 import com.ubtechinc.corpus.entity.Intent;
@@ -32,7 +31,7 @@ public class IntentServiceImpl extends ServiceImpl<IntentMapper, Intent> impleme
 	private IntentMapper mapper;
 	
 	@Override
-	public LinkedHashMap<String,Object> selectByName(String name) {
+	public Map<String,Object> selectByName(String name) {
 		return mapper.selectByName(name);
 	}
 	

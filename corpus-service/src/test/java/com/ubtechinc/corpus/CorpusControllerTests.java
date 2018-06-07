@@ -85,7 +85,7 @@ public class CorpusControllerTests {
 	Corpus corpus3 = Corpus.builder().content("content3").createTime(new Date()).ownerId(10000L).slots("slots3")
 			.build();
 
-	private void AddDateBeforeDDL() {
+	private void addDateBeforeDDL() {
 		domainService.insert(domain1);
 		domainService.insert(domain2);
 
@@ -144,7 +144,7 @@ public class CorpusControllerTests {
 	@Transactional
 	@Rollback(true)
 	public void listByPageSuccess() throws Exception {
-		AddDateBeforeDDL();
+		addDateBeforeDDL();
 		for (int i = 0; i < 10; i++) {
 			corpusService.insert(corpus2);
 		}
@@ -170,7 +170,7 @@ public class CorpusControllerTests {
 	@Transactional
 	@Rollback(true)
 	public void listByOwnerIdAndIntentSuccess() throws Exception {
-		AddDateBeforeDDL();
+		addDateBeforeDDL();
 
 		RequestBuilder req = get(LIST_URL).param("ownerId", corpus2.getOwnerId().toString())
 				.param("intentId", corpus2.getIntentId().toString()).contentType(MediaType.APPLICATION_JSON);
@@ -187,7 +187,7 @@ public class CorpusControllerTests {
 	@Transactional
 	@Rollback(true)
 	public void listByOwnerIdAndDomainIdAndIntentSuccess() throws Exception {
-		AddDateBeforeDDL();
+		addDateBeforeDDL();
 
 		RequestBuilder req = get(LIST_URL).param("domainId", corpus2.getDomainId().toString())
 				.param("intentId", corpus2.getIntentId().toString()).contentType(MediaType.APPLICATION_JSON);
@@ -207,7 +207,7 @@ public class CorpusControllerTests {
 	@Transactional
 	@Rollback(true)
 	public void listByOwnerIdAndDomainIdSuccess() throws Exception {
-		AddDateBeforeDDL();
+		addDateBeforeDDL();
 
 		RequestBuilder req = get(LIST_URL).param("ownerId", corpus1.getOwnerId().toString())
 				.param("domainId", corpus1.getDomainId().toString()).contentType(MediaType.APPLICATION_JSON);
@@ -224,7 +224,7 @@ public class CorpusControllerTests {
 	@Transactional
 	@Rollback(true)
 	public void listByOwnerIdSuccess() throws Exception {
-		AddDateBeforeDDL();
+		addDateBeforeDDL();
 
 		RequestBuilder req = get(LIST_URL).contentType(MediaType.APPLICATION_JSON);
 
@@ -240,7 +240,7 @@ public class CorpusControllerTests {
 	@Transactional
 	@Rollback(true)
 	public void modifyWithInvalidContent() throws Exception {
-		AddDateBeforeDDL();
+		addDateBeforeDDL();
 
 		LinkedHashMap<String, String> corpusParam = new LinkedHashMap<>();
 		corpusParam.put("corpusId", corpus1.getId().toString());
@@ -269,7 +269,7 @@ public class CorpusControllerTests {
 	@Transactional
 	@Rollback(true)
 	public void modifyWithInvalidCorpusId() throws Exception {
-		AddDateBeforeDDL();
+		addDateBeforeDDL();
 
 		LinkedHashMap<String, String> corpusParam = new LinkedHashMap<>();
 		corpusParam.put("content", corpus1.getContent() + "-extend");
@@ -297,7 +297,7 @@ public class CorpusControllerTests {
 	@Transactional
 	@Rollback(true)
 	public void modifySuccess() throws Exception {
-		AddDateBeforeDDL();
+		addDateBeforeDDL();
 
 		LinkedHashMap<String, String> corpusParam = new LinkedHashMap<>();
 		corpusParam.put("corpusId", corpus1.getId().toString());
@@ -315,7 +315,7 @@ public class CorpusControllerTests {
 	@Transactional
 	@Rollback(true)
 	public void removeByCorpusIdSuccess() throws Exception {
-		AddDateBeforeDDL();
+		addDateBeforeDDL();
 
 		LinkedHashMap<String, Object> corpusParam = new LinkedHashMap<>();
 		corpusParam.put("corpusIds", new String[] { corpus1.getId().toString(), corpus2.getId().toString() });
@@ -335,7 +335,7 @@ public class CorpusControllerTests {
 	@Transactional
 	@Rollback(true)
 	public void removeByIntentIdSuccess() throws Exception {
-		AddDateBeforeDDL();
+		addDateBeforeDDL();
 
 		LinkedHashMap<String, String> corpusParam = new LinkedHashMap<>();
 		corpusParam.put("intentId", intent1.getId().toString());
@@ -353,7 +353,7 @@ public class CorpusControllerTests {
 	@Transactional
 	@Rollback(true)
 	public void removeByDomainIdSuccess() throws Exception {
-		AddDateBeforeDDL();
+		addDateBeforeDDL();
 
 		LinkedHashMap<String, String> corpusParam = new LinkedHashMap<>();
 		corpusParam.put("domainId", domain1.getId().toString());

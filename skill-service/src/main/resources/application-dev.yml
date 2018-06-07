@@ -1,0 +1,21 @@
+server:
+  port: 6063
+
+spring:
+  application:
+    name: skill
+    
+dubbo:
+  application:
+    name: skill-consumer
+    id: skill-consumer
+  protocol:
+    id: dubbo
+    name: dubbo
+    port: 20993
+  registry:
+    id: skill-registry
+    address: 10.10.1.43:2181
+    protocol: zookeeper
+    timeout: 30000
+    threads: 10

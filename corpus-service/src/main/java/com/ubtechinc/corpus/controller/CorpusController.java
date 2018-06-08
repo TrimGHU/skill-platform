@@ -45,6 +45,9 @@ import com.ubtechinc.corpus.model.CorpusBo;
 public class CorpusController extends BaseController {
 
 	@Autowired
+	private CustomLogger logger;
+
+	@Autowired
 	private IDomainService domainService;
 
 	@Autowired
@@ -119,6 +122,8 @@ public class CorpusController extends BaseController {
 	public List<Corpus> list(HttpServletResponse response, @RequestParam(required = false) Long domainId,
 			@RequestParam(required = false) Long intentId, @RequestParam(required = false) Integer size,
 			@RequestParam(required = false) Integer num) {
+
+		logger.info(String.format("Into %s %s ", this.getClass().getName(), "list"));
 
 		CorpusBuilder corpusBuilder = Corpus.builder().ownerId(ownerId);
 

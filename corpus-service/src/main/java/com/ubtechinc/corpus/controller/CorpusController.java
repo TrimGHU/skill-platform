@@ -31,6 +31,8 @@ import com.ubtechinc.corpus.entity.Intent;
 import com.ubtechinc.corpus.exception.SkillException;
 import com.ubtechinc.corpus.model.CorpusBo;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * <p>
  * 前端控制器
@@ -42,6 +44,7 @@ import com.ubtechinc.corpus.model.CorpusBo;
 
 @RestController
 @RequestMapping("/corpus")
+@Slf4j
 public class CorpusController extends BaseController {
 
 	@Autowired
@@ -124,6 +127,7 @@ public class CorpusController extends BaseController {
 			@RequestParam(required = false) Integer num) {
 
 		logger.info(String.format("Into %s %s ", this.getClass().getName(), "list"));
+		log.info(String.format("Into %s %s ", this.getClass().getName(), "list"));
 
 		CorpusBuilder corpusBuilder = Corpus.builder().ownerId(ownerId);
 

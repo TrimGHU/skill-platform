@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.ubtechinc.corpus.api.IIntentService;
 import com.ubtechinc.corpus.entity.Intent;
-import com.ubtechinc.corpus.exception.SkillException;
+import com.ubtechinc.exception.SkillException;
 
 /**
  * <p>

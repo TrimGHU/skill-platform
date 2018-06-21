@@ -28,7 +28,7 @@ import com.ubtechinc.corpus.entity.Corpus;
 import com.ubtechinc.corpus.entity.Corpus.CorpusBuilder;
 import com.ubtechinc.corpus.entity.Domain;
 import com.ubtechinc.corpus.entity.Intent;
-import com.ubtechinc.corpus.exception.SkillException;
+import com.ubtechinc.exception.SkillException;
 import com.ubtechinc.corpus.model.CorpusBo;
 
 import lombok.extern.slf4j.Slf4j;

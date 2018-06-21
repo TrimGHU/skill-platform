@@ -1,4 +1,4 @@
-package com.ubtechinc.corpus;
+package com.ubtechinc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

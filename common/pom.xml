@@ -32,13 +32,6 @@
 			<optional>true</optional>
 		</dependency>
 
-
-		<dependency>
-			<groupId>com.ubtechinc</groupId>
-			<artifactId>ubtechinc-authorization</artifactId>
-			<version>1.0.0</version>
-		</dependency>
-
 	</dependencies>
 
 </project>
